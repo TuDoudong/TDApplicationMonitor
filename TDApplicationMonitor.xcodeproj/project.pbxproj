@@ -14,6 +14,8 @@
 		28036DB61D40A0F1001C1173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28036DB51D40A0F1001C1173 /* Assets.xcassets */; };
 		28036DB91D40A0F1001C1173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28036DB71D40A0F1001C1173 /* LaunchScreen.storyboard */; };
 		28036DC41D40A0F1001C1173 /* TDApplicationMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28036DC31D40A0F1001C1173 /* TDApplicationMonitorTests.m */; };
+		28036DD01D40AA79001C1173 /* TDPerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 28036DCF1D40AA79001C1173 /* TDPerformanceMonitor.m */; };
+		28036DD31D40B369001C1173 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28036DD21D40B369001C1173 /* CrashReporter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		28036DBF1D40A0F1001C1173 /* TDApplicationMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDApplicationMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28036DC31D40A0F1001C1173 /* TDApplicationMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDApplicationMonitorTests.m; sourceTree = "<group>"; };
 		28036DC51D40A0F1001C1173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28036DCE1D40AA79001C1173 /* TDPerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPerformanceMonitor.h; sourceTree = "<group>"; };
+		28036DCF1D40AA79001C1173 /* TDPerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPerformanceMonitor.m; sourceTree = "<group>"; };
+		28036DD21D40B369001C1173 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28036DD31D40B369001C1173 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,10 +91,13 @@
 				28036DAD1D40A0F1001C1173 /* AppDelegate.m */,
 				28036DAF1D40A0F1001C1173 /* ViewController.h */,
 				28036DB01D40A0F1001C1173 /* ViewController.m */,
+				28036DCE1D40AA79001C1173 /* TDPerformanceMonitor.h */,
+				28036DCF1D40AA79001C1173 /* TDPerformanceMonitor.m */,
 				28036DB21D40A0F1001C1173 /* Main.storyboard */,
 				28036DB51D40A0F1001C1173 /* Assets.xcassets */,
 				28036DB71D40A0F1001C1173 /* LaunchScreen.storyboard */,
 				28036DBA1D40A0F1001C1173 /* Info.plist */,
+				28036DD11D40B369001C1173 /* iOS Framework */,
 				28036DA91D40A0F1001C1173 /* Supporting Files */,
 			);
 			path = TDApplicationMonitor;
@@ -109,6 +118,14 @@
 				28036DC51D40A0F1001C1173 /* Info.plist */,
 			);
 			path = TDApplicationMonitorTests;
+			sourceTree = "<group>";
+		};
+		28036DD11D40B369001C1173 /* iOS Framework */ = {
+			isa = PBXGroup;
+			children = (
+				28036DD21D40B369001C1173 /* CrashReporter.framework */,
+			);
+			path = "iOS Framework";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +231,7 @@
 				28036DB11D40A0F1001C1173 /* ViewController.m in Sources */,
 				28036DAE1D40A0F1001C1173 /* AppDelegate.m in Sources */,
 				28036DAB1D40A0F1001C1173 /* main.m in Sources */,
+				28036DD01D40AA79001C1173 /* TDPerformanceMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +361,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TDApplicationMonitor/iOS",
+					Framework,
+				);
 				INFOPLIST_FILE = TDApplicationMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tudoudong.TDApplicationMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,7 +378,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TDApplicationMonitor/iOS",
+					Framework,
+				);
 				INFOPLIST_FILE = TDApplicationMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tudoudong.TDApplicationMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,6 +434,7 @@
 				28036DCA1D40A0F1001C1173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28036DCB1D40A0F1001C1173 /* Build configuration list for PBXNativeTarget "TDApplicationMonitorTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +443,7 @@
 				28036DCD1D40A0F1001C1173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
